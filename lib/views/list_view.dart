@@ -8,8 +8,6 @@ class ListUsrView extends StatelessWidget {
   ListUsrView({Key? key, required this.users}) : super(key: key);
   List<UserModel> users;
   void pingaDelMAny(BuildContext context) async {
-    print("No se pudo encontrar el objeto");
-
     await showDialog(
         context: context,
         builder: (ctx) => AlertDialog(

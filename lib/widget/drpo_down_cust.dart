@@ -18,14 +18,11 @@ class _AppDropDownState extends State<AppDropDown> {
       width: 200,
       height: 50,
       decoration: BoxDecoration(
-          color: Pblanco,
-          borderRadius: BorderRadius.circular(15),
-          boxShadow: [
-            BoxShadow(
-                color: Pacua2.withOpacity(.5),
-                offset: Offset(0, 10),
-                blurRadius: 8)
-          ]),
+        color: Pblanco,
+        border: Border(
+            left: BorderSide(color: Pnaranja),
+            bottom: BorderSide(color: Pnaranja)),
+      ),
       child: DropdownButton(
         underline: Container(
           height: 60,

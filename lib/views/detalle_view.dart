@@ -15,12 +15,17 @@ class DetalleView extends StatelessWidget {
             width: double.infinity,
             height: double.infinity,
             padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [Pblanco, Color(0xffF5F5F5)],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter),
-                borderRadius: BorderRadius.circular(60)),
+            decoration: BoxDecoration(color: Pblanco, boxShadow: [
+              BoxShadow(
+                  color: Pnaranja.withOpacity(.5),
+                  offset: Offset(5, 5),
+                  blurRadius: 20,
+                  spreadRadius: 10),
+              BoxShadow(
+                  color: Pacua2.withOpacity(.20),
+                  offset: Offset(-2, -7),
+                  blurRadius: 3)
+            ]),
             margin: EdgeInsets.symmetric(horizontal: 20, vertical: 80),
             child: Center(
                 child: Column(
@@ -30,7 +35,7 @@ class DetalleView extends StatelessWidget {
                   children: [
                     Text(
                       "Nombre",
-                      style: Ptextstylemedium(size: 25, color: Pazuldark),
+                      style: Ptextstylemedium(size: 25, color: Pnaranja),
                     ),
                     Text(user.nombre)
                   ],

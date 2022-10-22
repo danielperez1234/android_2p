@@ -30,15 +30,11 @@ class _PTextFieldCustomState extends State<PTextFieldCustom> {
       height: widget.height ?? 40,
       padding: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-          color: Pblanco,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black12,
-                spreadRadius: 1,
-                blurRadius: 1,
-                offset: Offset(0, 2.5))
-          ]),
+        color: Pblanco,
+        border: Border(
+            left: BorderSide(color: Pnaranja),
+            bottom: BorderSide(color: Pnaranja)),
+      ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [

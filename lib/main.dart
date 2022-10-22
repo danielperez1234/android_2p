@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Pblanco,
           textSelectionTheme: TextSelectionThemeData(
               selectionHandleColor: Pnaranja,
-              selectionColor: Pazul,
+              selectionColor: Pacua,
               cursorColor: Pazuldark),
           canvasColor: Pblanco,
           primarySwatch: PMaterialColor(Pazuldark)),

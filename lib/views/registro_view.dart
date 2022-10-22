@@ -17,26 +17,26 @@ class RegistroView extends StatefulWidget {
 }
 
 class _RegistroViewState extends State<RegistroView> {
-  TextEditingController userController = TextEditingController();
+  TextEditingController usuarioC = TextEditingController();
 
-  TextEditingController nombreController = TextEditingController();
+  TextEditingController nombreC = TextEditingController();
 
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController contraC = TextEditingController();
 
-  List<String> lst = ['Soltro', 'Casado'];
+  List<String> lst = ['Soltero', 'Casado'];
   List<String> habilidadesList = ["Java", "C#", "C++"];
   int selection = -1;
   String estadoCivil = "";
   String habilidades = "";
   String escolaridad = "";
   Future<bool> Verify() async {
-    if (userController.text != "" &&
-        nombreController.text != "" &&
-        passwordController.text != "" &&
+    if (usuarioC.text != "" &&
+        nombreC.text != "" &&
+        contraC.text != "" &&
         escolaridad != "" &&
         estadoCivil != "") {
       if (users
-          .where((element) => userController.text == element.usuario)
+          .where((element) => usuarioC.text == element.usuario)
           .isNotEmpty) {
         await showDialog(
             context: context,
@@ -46,14 +46,8 @@ class _RegistroViewState extends State<RegistroView> {
                 ));
         return false;
       }
-      users.add(UserModel(
-          users.last.id + 1,
-          userController.text,
-          nombreController.text,
-          passwordController.text,
-          estadoCivil,
-          escolaridad,
-          habilidades));
+      users.add(UserModel(users.last.id + 1, usuarioC.text, nombreC.text,
+          contraC.text, estadoCivil, escolaridad, habilidades));
       return true;
     }
     await showDialog(
@@ -88,20 +82,26 @@ class _RegistroViewState extends State<RegistroView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      PTextFieldCustom(
-                          controller: userController, hint: "Usuario"),
+                      PTextFieldCustom(controller: usuarioC, hint: "Usuario"),
                       SizedBox(
                         height: 35,
                       ),
-                      PTextFieldCustom(
-                          controller: nombreController, hint: 'Nombre'),
+                      PTextFieldCustom(controller: nombreC, hint: 'Nombre'),
                       SizedBox(
                         height: 35,
                       ),
-                      PTextFieldCustom(
-                          controller: passwordController, hint: 'Contraseña'),
+                      PTextFieldCustom(controller: contraC, hint: 'Contraseña'),
                       SizedBox(
                         height: 35,
+                      ),
+                      AppDropDown(
+                        list: ["Licenciatura", "Maestria", "Doctorado"],
+                        onChange: (s) {
+                          escolaridad = s;
+                        },
+                      ),
+                      SizedBox(
+                        height: 30,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,7 +112,7 @@ class _RegistroViewState extends State<RegistroView> {
                                 PtextstyleregularItalic(color: Colors.black26),
                           ),
                           Wrap(
-                              direction: Axis.horizontal,
+                              direction: Axis.vertical,
                               children: habilidadesList.map((e) {
                                 int actualindex = habilidadesList.indexOf(e);
                                 return Row(
@@ -126,8 +126,10 @@ class _RegistroViewState extends State<RegistroView> {
                                             var sp = habilidades.split(" ");
                                             habilidades = "";
                                             sp.forEach((element) {
-                                              if (element != e)
-                                                habilidades + element;
+                                              if (element != e &&
+                                                  element != " ")
+                                                habilidades =
+                                                    habilidades + element + " ";
                                             });
                                           }
                                           setState(() {});
@@ -174,12 +176,6 @@ class _RegistroViewState extends State<RegistroView> {
                       ),
                       SizedBox(
                         height: 25,
-                      ),
-                      AppDropDown(
-                        list: ["Licenciatura", "Maestria", "Doctorado"],
-                        onChange: (s) {
-                          escolaridad = s;
-                        },
                       ),
                       SizedBox(
                         height: 35,
