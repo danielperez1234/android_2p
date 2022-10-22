@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 ///Colores planos
 const Pacua = const Color(0xff6CAD9A);
 const Pacua2 = const Color(0xffaed4c7);
-const Pacua3 = const Color(0xffDFEEE9);
-const Pazul = const Color(0xffD7EEF4);
 const Pazul2 = const Color(0xffA0E0F2);
 const Pazuldark = const Color(0xff26444D);
 const Pnaranja = const Color(0xffFB7E62);
