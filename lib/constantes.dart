@@ -27,25 +27,18 @@ PMaterialColor(Color color) {
 }
 
 //styles
-TextStyle PtextstyleButton({double size = 14, Color color = Pblanco}) =>
-    TextStyle(
-        fontFamily: 'Poppins',
-        color: color,
-        fontSize: size,
-        fontWeight: FontWeight.w600);
+TextStyle PtextstyleButton({double size = 16, Color color = Pblanco}) =>
+    TextStyle(color: color, fontSize: size, fontWeight: FontWeight.w600);
 
-TextStyle PtextstyleregularItalic({double size = 14, Color color = Ptext}) =>
+TextStyle PtextstyleregularItalic({double size = 16, Color color = Ptext}) =>
     TextStyle(
         fontStyle: FontStyle.italic,
-        fontFamily: 'Poppins',
         color: color,
         fontSize: size,
         fontWeight: FontWeight.w400);
-TextStyle Ptextstylemedium({double size = 14, Color color = Pblanco}) =>
-    TextStyle(
-        fontFamily: 'Poppins',
-        color: color,
-        fontSize: size,
-        fontWeight: FontWeight.w500);
-TextStyle PtextstyleHint({double size = 14, Color color = PgreyA0}) =>
-    TextStyle(fontFamily: 'Poppins', color: color, fontSize: size);
+TextStyle Ptextstylemedium({double size = 16, Color color = Pblanco}) =>
+    TextStyle(color: color, fontSize: size, fontWeight: FontWeight.w500);
+TextStyle PtextstyleHint({double size = 16, Color color = PgreyA0}) =>
+    TextStyle(color: color, fontSize: size);
+TextStyle PtextstyleDetalles({double size = 16, Color color = Pnaranja}) =>
+    TextStyle(color: color, fontSize: size, fontFamily: 'Satisfy');

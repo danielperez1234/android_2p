@@ -45,6 +45,10 @@ class LoginView extends StatelessWidget {
           child: Column(
             children: [
               Text(
+                "Martha Style",
+                style: PtextstyleDetalles(size: 30),
+              ),
+              Text(
                 'Login',
                 style: Ptextstylemedium(color: Pacua, size: 25),
               ),
