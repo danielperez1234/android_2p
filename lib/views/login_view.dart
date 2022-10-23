@@ -22,7 +22,7 @@ class LoginView extends StatelessWidget {
   LoginView({Key? key}) : super(key: key);
   TextEditingController userController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  bool verify() {
+  Future<bool> verify(BuildContext context) async {
     var usr = userController.text;
     var pas = passwordController.text;
     var lst = users.where((element) => element.usuario == usr).toList();
@@ -32,7 +32,20 @@ class LoginView extends StatelessWidget {
       if (user.Password == pas) {
         return true;
       }
+      await showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text("Error en inicio de sesión"),
+                content: Text("Contraseña equivocada."),
+              ));
+      return false;
     }
+    await showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              title: Text("Error en inicio de sesión"),
+              content: Text("usuario no existe."),
+            ));
     return false;
   }
 
@@ -64,8 +77,8 @@ class LoginView extends StatelessWidget {
                 height: 20,
               ),
               PButtonLArgeCustom(
-                  onPressed: () {
-                    if (verify())
+                  onPressed: () async {
+                    if (await verify(context))
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(

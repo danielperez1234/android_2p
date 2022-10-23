@@ -23,7 +23,7 @@ class _RegistroViewState extends State<RegistroView> {
 
   TextEditingController passwordController = TextEditingController();
 
-  List<String> lst = ['Soltro', 'Casado'];
+  List<String> lst = ['Soltero', 'Casado'];
   List<String> habilidadesList = ["Java", "C#", "C++"];
   int selection = -1;
   String estadoCivil = "";
@@ -127,7 +127,8 @@ class _RegistroViewState extends State<RegistroView> {
                                             habilidades = "";
                                             sp.forEach((element) {
                                               if (element != e)
-                                                habilidades + element;
+                                                habilidades =
+                                                    habilidades + element + ' ';
                                             });
                                           }
                                           setState(() {});

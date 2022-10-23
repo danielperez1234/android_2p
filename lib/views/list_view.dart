@@ -7,16 +7,6 @@ import 'package:flutter/material.dart';
 class ListUsrView extends StatelessWidget {
   ListUsrView({Key? key, required this.users}) : super(key: key);
   List<UserModel> users;
-  void pingaDelMAny(BuildContext context) async {
-    print("No se pudo encontrar el objeto");
-
-    await showDialog(
-        context: context,
-        builder: (ctx) => AlertDialog(
-              title: Text("Many se la come"),
-              content: Text("Confirmo si se la come."),
-            ));
-  }
 
   @override
   Widget build(BuildContext context) {
