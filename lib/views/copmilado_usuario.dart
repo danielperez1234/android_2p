@@ -1,10 +1,11 @@
-import 'package:android_2p/constantes.dart';
 import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/widget/large_button_custom.dart';
-import 'package:android_2p/widget/user_card.dart';
+import 'package:android_2p/widget/boton.dart';
+import 'package:android_2p/widget/tile_usuario.dart';
 import 'package:flutter/material.dart';
 
-import 'login_view.dart';
+import '../global/colores.dart';
+import '../global/styles.dart';
+import 'login.dart';
 
 class ListUsrView extends StatelessWidget {
   ListUsrView({Key? key, required this.users}) : super(key: key);
@@ -14,7 +15,7 @@ class ListUsrView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: dark,
+        backgroundColor: bg,
         title: Text(
           "Registros",
           style: textstylenormal(color: Colors.white, size: 30),
@@ -54,7 +55,10 @@ class ListUsrView extends StatelessWidget {
                   idUser = -1;
                   Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginView()),
+                      MaterialPageRoute(
+                          builder: (context) => LoginView(
+                                size: MediaQuery.of(context).size.width,
+                              )),
                       (s) => false);
                 },
                 text: "LogOut"),

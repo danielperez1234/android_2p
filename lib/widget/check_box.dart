@@ -1,5 +1,6 @@
-import 'package:android_2p/constantes.dart';
 import 'package:flutter/material.dart';
+
+import '../global/colores.dart';
 
 class PCheckButton extends StatefulWidget {
   PCheckButton({Key? key, required this.onPress, this.selected = false})
@@ -41,7 +42,7 @@ class _PCheckButtonState extends State<PCheckButton> {
                       shape: BoxShape.rectangle),
                   child: Icon(
                     Icons.check,
-                    color: dark,
+                    color: bg,
                     size: 16,
                   ),
                 )

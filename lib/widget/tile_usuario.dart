@@ -1,9 +1,11 @@
 import 'dart:math';
 
-import 'package:android_2p/constantes.dart';
 import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/views/detalle_view.dart';
+import 'package:android_2p/views/detalle.dart';
 import 'package:flutter/material.dart';
+
+import '../global/colores.dart';
+import '../global/styles.dart';
 
 class userCard extends StatelessWidget {
   userCard({
@@ -16,7 +18,7 @@ class userCard extends StatelessWidget {
   Widget build(BuildContext context) {
     int rand = 0 + Random().nextInt(3 - 0);
     return Container(
-      decoration: BoxDecoration(color: dark, boxShadow: [
+      decoration: BoxDecoration(color: bg, boxShadow: [
         BoxShadow(
             color: Colors.white.withOpacity(.05),
             offset: Offset(0, 3),
@@ -59,7 +61,7 @@ class userCard extends StatelessWidget {
                   children: [
                     Text(
                       user.nombre,
-                      style: PtextstyleButton(color: Colors.white, size: 35),
+                      style: textstyle600(color: Colors.white, size: 35),
                     ),
                     Text(
                       user.escolaridad,

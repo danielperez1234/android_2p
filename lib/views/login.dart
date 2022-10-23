@@ -1,10 +1,12 @@
-import 'package:android_2p/constantes.dart';
 import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/views/list_view.dart';
-import 'package:android_2p/views/registro_view.dart';
-import 'package:android_2p/widget/large_button_custom.dart';
-import 'package:android_2p/widget/text_field_custom.dart';
+import 'package:android_2p/views/copmilado_usuario.dart';
+import 'package:android_2p/views/registro.dart';
+import 'package:android_2p/widget/boton.dart';
+import 'package:android_2p/widget/entrada_texto.dart';
 import 'package:flutter/material.dart';
+
+import '../global/colores.dart';
+import '../global/styles.dart';
 
 List<UserModel> users = [
   UserModel(1, "usuario1", "nombre", "Password", "estadoCivil", "escolaridad",
@@ -19,8 +21,8 @@ List<UserModel> users = [
 int idUser = -1;
 
 class LoginView extends StatefulWidget {
-  LoginView({Key? key}) : super(key: key);
-
+  LoginView({Key? key, required this.size}) : super(key: key);
+  double size;
   @override
   State<LoginView> createState() => _LoginViewState();
 }
@@ -60,13 +62,14 @@ class _LoginViewState extends State<LoginView> {
   @override
   void initState() {
     // TODO: implement initState
+    anim = widget.size;
     super.initState();
+
     animate();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (anim == 0) anim = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: Stack(
@@ -124,7 +127,7 @@ class _LoginViewState extends State<LoginView> {
                         );
                       },
                       child: Container(
-                        decoration: BoxDecoration(color: dark, boxShadow: [
+                        decoration: BoxDecoration(color: bg, boxShadow: [
                           BoxShadow(
                               color: azulElectrico2.withOpacity(.3),
                               offset: Offset(0, 4),
@@ -151,7 +154,7 @@ class _LoginViewState extends State<LoginView> {
                   duration: Duration(seconds: 2),
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
-                          colors: [Colors.transparent, dark], stops: [0, .01])),
+                          colors: [Colors.transparent, bg], stops: [0, .01])),
                 ),
               ],
             ),

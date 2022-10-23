@@ -1,5 +1,7 @@
-import 'package:android_2p/constantes.dart';
 import 'package:flutter/material.dart';
+
+import '../global/colores.dart';
+import '../global/styles.dart';
 
 class AppDropDown extends StatefulWidget {
   AppDropDown({Key? key, required this.list, required this.onChange})
@@ -17,7 +19,7 @@ class _AppDropDownState extends State<AppDropDown> {
     return Container(
       width: double.infinity,
       height: 50,
-      decoration: BoxDecoration(color: dark, boxShadow: [
+      decoration: BoxDecoration(color: bg, boxShadow: [
         BoxShadow(
             color: azulElectrico2.withOpacity(.2),
             offset: Offset(0, 5),

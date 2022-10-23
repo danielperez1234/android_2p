@@ -1,6 +1,7 @@
-import 'package:android_2p/constantes.dart';
 import 'package:flutter/material.dart';
 
+import '../global/colores.dart';
+import '../global/styles.dart';
 import '../models/user_model.dart';
 
 class DetalleView extends StatelessWidget {
@@ -20,7 +21,7 @@ class DetalleView extends StatelessWidget {
             child: Icon(Icons.arrow_back_ios, size: 35),
           ),
         ),
-        backgroundColor: dark,
+        backgroundColor: bg,
         body: Center(
           child: Padding(
             padding: EdgeInsets.only(top: 20, right: 20, left: 20, bottom: 60),
@@ -44,7 +45,7 @@ class DetalleView extends StatelessWidget {
                   padding:
                       EdgeInsets.only(top: 30, right: 20, left: 20, bottom: 20),
                   decoration: BoxDecoration(
-                      color: dark,
+                      color: bg,
                       border: Border.all(
                           color: azulElectrico2.withOpacity(.8), width: 8),
                       borderRadius: BorderRadius.circular(60),

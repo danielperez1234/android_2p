@@ -1,5 +1,7 @@
-import 'package:android_2p/constantes.dart';
 import 'package:flutter/material.dart';
+
+import '../global/colores.dart';
+import '../global/styles.dart';
 
 class PButtonLArgeCustom extends StatefulWidget {
   PButtonLArgeCustom({
@@ -37,7 +39,7 @@ class _PButtonLArgeCustomState extends State<PButtonLArgeCustom> {
         borderRadius: BorderRadius.circular(20),
         child: RawMaterialButton(
           onPressed: widget.onPressed,
-          fillColor: dark,
+          fillColor: bg,
           hoverColor: azulElectrico2.withOpacity(.5),
           splashColor: azulElectrico2.withOpacity(.5),
           child: Container(
@@ -48,7 +50,7 @@ class _PButtonLArgeCustomState extends State<PButtonLArgeCustom> {
             child: Center(
                 child: Text(
               widget.text,
-              style: PtextstyleButton(color: dark, size: 20),
+              style: textstyle600(color: bg, size: 20),
             )),
           ),
         ),

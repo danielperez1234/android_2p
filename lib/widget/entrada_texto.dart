@@ -1,5 +1,7 @@
-import 'package:android_2p/constantes.dart';
 import 'package:flutter/material.dart';
+
+import '../global/colores.dart';
+import '../global/styles.dart';
 
 class PTextFieldCustom extends StatefulWidget {
   PTextFieldCustom(
@@ -29,7 +31,7 @@ class _PTextFieldCustomState extends State<PTextFieldCustom> {
       width: Psize.width,
       height: 60,
       padding: EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(color: dark, boxShadow: [
+      decoration: BoxDecoration(color: bg, boxShadow: [
         BoxShadow(
             color: azulElectrico2.withOpacity(.2),
             offset: Offset(0, 5),
@@ -44,11 +46,11 @@ class _PTextFieldCustomState extends State<PTextFieldCustom> {
             child: TextField(
               textAlignVertical: TextAlignVertical.center,
               keyboardType: TextInputType.emailAddress,
-              style: Ptextstylemedium(size: 20),
+              style: textstylenormal(size: 20),
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(bottom: 17),
                 hintText: widget.hint,
-                hintStyle: PtextstyleHint(size: 20),
+                hintStyle: textstyle600(color: gris),
                 border: InputBorder.none,
                 disabledBorder: InputBorder.none,
                 enabledBorder: InputBorder.none,

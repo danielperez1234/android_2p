@@ -1,5 +1,6 @@
-import 'package:android_2p/constantes.dart';
 import 'package:flutter/material.dart';
+
+import '../global/colores.dart';
 
 class PRadButton extends StatefulWidget {
   PRadButton({Key? key, required this.onPress, this.selected = false})

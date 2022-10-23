@@ -1,13 +1,15 @@
-import 'package:android_2p/constantes.dart';
 import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/views/list_view.dart';
-import 'package:android_2p/views/login_view.dart';
-import 'package:android_2p/widget/check_button.dart';
-import 'package:android_2p/widget/drpo_down_cust.dart';
-import 'package:android_2p/widget/large_button_custom.dart';
-import 'package:android_2p/widget/rad_button.dart';
-import 'package:android_2p/widget/text_field_custom.dart';
+import 'package:android_2p/views/copmilado_usuario.dart';
+import 'package:android_2p/views/login.dart';
+import 'package:android_2p/widget/boton.dart';
+import 'package:android_2p/widget/check_box.dart';
+import 'package:android_2p/widget/drop.dart';
+import 'package:android_2p/widget/entrada_texto.dart';
+import 'package:android_2p/widget/radio_boton.dart';
 import 'package:flutter/material.dart';
+
+import '../global/colores.dart';
+import '../global/styles.dart';
 
 class RegistroView extends StatefulWidget {
   RegistroView({Key? key}) : super(key: key);
@@ -82,7 +84,7 @@ class _RegistroViewState extends State<RegistroView> {
                   padding: const EdgeInsets.only(left: 30.0),
                   child: Text(
                     "Nuevo usuario",
-                    style: PtextstyleButton(size: 35),
+                    style: textstyle600(size: 35),
                   ),
                 ),
               ],
