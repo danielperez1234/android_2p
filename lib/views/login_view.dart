@@ -44,9 +44,32 @@ class LoginView extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              Container(
+                padding: EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                    color: Color(0xfff5f5f5),
+                    boxShadow: [
+                      BoxShadow(
+                          color: textColor.withOpacity(.3),
+                          offset: Offset(5, 15),
+                          blurRadius: 12)
+                    ],
+                    border: Border.all(color: rojo, width: 15),
+                    borderRadius: BorderRadius.circular(60)),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(55),
+                  child: Image.network(
+                    "https://i.pinimg.com/564x/7f/9d/38/7f9d38947fe1f5771d9cfb10ae4597ed.jpg",
+                    width: 200,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 35,
+              ),
               Text(
-                'Login',
-                style: Ptextstylemedium(color: Pacua, size: 25),
+                'Welcome Bro!',
+                style: textstyleTitles(color: azul, size: 25),
               ),
               SizedBox(
                 height: 20,
@@ -76,17 +99,27 @@ class LoginView extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => RegistroView()),
-                    );
-                  },
-                  child: Text(
-                    'Registrarme',
-                    style: PtextstyleregularItalic(color: Pacua2, size: 16),
-                  ))
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "No tengo cuenta bro!",
+                    style: Ptextstyleregular(),
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegistroView()),
+                        );
+                      },
+                      child: Text(
+                        'Registrarme',
+                        style: PtextstyleregularItalic(color: rojo, size: 16),
+                      )),
+                ],
+              )
             ],
           ),
         ),

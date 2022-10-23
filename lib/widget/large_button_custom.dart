@@ -8,7 +8,7 @@ class PButtonLArgeCustom extends StatefulWidget {
       required this.text,
       this.height,
       this.width,
-      this.color = Pnaranja})
+      this.color = amarillo})
       : super(key: key);
   Function() onPressed;
   String text;
@@ -33,7 +33,10 @@ class _PButtonLArgeCustomState extends State<PButtonLArgeCustom> {
     return Container(
       height: widget.height ?? 40,
       width: widget.width ?? Psize.width / 1.875,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+            color: gris.withOpacity(.2), offset: Offset(0, 10), blurRadius: 8)
+      ], borderRadius: BorderRadius.circular(10)),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: MaterialButton(
@@ -63,7 +66,7 @@ class _PButtonLArgeCustomState extends State<PButtonLArgeCustom> {
             child: Center(
                 child: Text(
               widget.text.toUpperCase(),
-              style: PtextstyleButton(),
+              style: PtextstyleButton(color: dark),
             )),
           ),
         ),

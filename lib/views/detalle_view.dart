@@ -10,63 +10,103 @@ class DetalleView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Material(
-          color: Pazuldark,
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [Pblanco, Color(0xffF5F5F5)],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter),
-                borderRadius: BorderRadius.circular(60)),
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 80),
-            child: Center(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "Nombre",
-                      style: Ptextstylemedium(size: 25, color: Pazuldark),
+          color: dark,
+          child: Center(
+            child: Padding(
+              padding:
+                  EdgeInsets.only(top: 60, right: 20, left: 20, bottom: 60),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 300,
+                    height: 60,
+                    decoration: BoxDecoration(
+                        color: rojo,
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(30),
+                            topLeft: Radius.circular(30))),
+                    child: Center(
+                      child: Text(
+                        "BRO INFO",
+                        style: textstyleTitles(size: 35, color: textColor),
+                      ),
                     ),
-                    Text(user.nombre)
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(
-                      "Escolaridad",
-                      style: PtextstyleregularItalic(
-                          color: Colors.black26, size: 15),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 500,
+                    padding: EdgeInsets.only(
+                        top: 30, right: 20, left: 20, bottom: 20),
+                    decoration: BoxDecoration(
+                      color: amarillo,
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(60),
+                          bottomRight: Radius.circular(60),
+                          topRight: Radius.circular(60)),
                     ),
-                    Text(user.escolaridad)
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(
-                      "EstadoCivil",
-                      style: PtextstyleregularItalic(
-                          color: Colors.black26, size: 15),
-                    ),
-                    Text(user.estadoCivil)
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text(
-                      "Habilidades",
-                      style: PtextstyleregularItalic(
-                          color: Colors.black26, size: 15),
-                    ),
-                    Text(user.habilidades)
-                  ],
-                ),
-              ],
-            )),
+                    child: Center(
+                        child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              "Nombre",
+                              style: textstyleTitles(size: 30, color: dark),
+                            ),
+                            Text(user.nombre)
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "Escolaridad",
+                              style: textstyleTitles(
+                                  color: Colors.black26, size: 15),
+                            ),
+                            Text(user.escolaridad)
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "EstadoCivil",
+                              style: textstyleTitles(
+                                  color: Colors.black26, size: 15),
+                            ),
+                            Text(user.estadoCivil)
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "Habilidades",
+                              style: textstyleTitles(
+                                  color: Colors.black26, size: 15),
+                            ),
+                            Text(user.habilidades)
+                          ],
+                        ),
+                      ],
+                    )),
+                  ),
+                ],
+              ),
+            ),
           )),
     );
   }

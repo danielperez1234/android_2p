@@ -18,11 +18,11 @@ class _AppDropDownState extends State<AppDropDown> {
       width: 200,
       height: 50,
       decoration: BoxDecoration(
-          color: Pblanco,
+          color: dark,
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
-                color: Pacua2.withOpacity(.5),
+                color: gris.withOpacity(.2),
                 offset: Offset(0, 10),
                 blurRadius: 8)
           ]),
@@ -34,10 +34,18 @@ class _AppDropDownState extends State<AppDropDown> {
         ),
         isExpanded: true,
         value: value,
-        hint: Center(child: Text("Escolaridad")),
+        hint: Center(
+            child: Text(
+          "Escolaridad",
+          style: Ptextstyleregular(),
+        )),
         items: widget.list
             .map((e) => DropdownMenuItem(
-                  child: Center(child: Text(e)),
+                  child: Center(
+                      child: Text(
+                    e,
+                    style: Ptextstyleregular(),
+                  )),
                   value: e,
                 ))
             .toList(),

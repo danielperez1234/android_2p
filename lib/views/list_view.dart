@@ -7,16 +7,6 @@ import 'package:flutter/material.dart';
 class ListUsrView extends StatelessWidget {
   ListUsrView({Key? key, required this.users}) : super(key: key);
   List<UserModel> users;
-  void pingaDelMAny(BuildContext context) async {
-    print("No se pudo encontrar el objeto");
-
-    await showDialog(
-        context: context,
-        builder: (ctx) => AlertDialog(
-              title: Text("Many se la come"),
-              content: Text("Confirmo si se la come."),
-            ));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +21,14 @@ class ListUsrView extends StatelessWidget {
                 (s) => false);
           },
           child: Icon(
-            Icons.logout,
-            color: Pblanco,
+            Icons.backspace_outlined,
+            color: textColor,
           ),
         ),
-        backgroundColor: Pazuldark,
-        centerTitle: true,
+        backgroundColor: dark,
         title: Text(
-          "Usuarios",
-          style: PtextstyleButton(color: Pblanco, size: 25),
+          "Bros",
+          style: textstyleTitles(color: textColor, size: 30),
         ),
       ),
       body: Container(
@@ -49,12 +38,12 @@ class ListUsrView extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 35,
+                height: 10,
                 width: MediaQuery.of(context).size.width,
               ),
               ...users
                   .map((e) => Container(
-                        margin: EdgeInsets.symmetric(vertical: 20),
+                        margin: EdgeInsets.symmetric(vertical: 5),
                         child: userCard(
                           user: e,
                         ),

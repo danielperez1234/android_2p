@@ -23,7 +23,7 @@ class _RegistroViewState extends State<RegistroView> {
 
   TextEditingController passwordController = TextEditingController();
 
-  List<String> lst = ['Soltro', 'Casado'];
+  List<String> lst = ['Soltero', 'Casado'];
   List<String> habilidadesList = ["Java", "C#", "C++"];
   int selection = -1;
   String estadoCivil = "";
@@ -75,12 +75,20 @@ class _RegistroViewState extends State<RegistroView> {
             SizedBox(
               height: 100,
             ),
-            Text(
-              "Registro de Usuario",
-              style: PtextstyleButton(size: 35, color: Pazuldark),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30.0),
+                  child: Text(
+                    "Registro",
+                    style: PtextstyleButton(size: 35),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
-              height: 15,
+              height: 10,
             ),
             Expanded(
               child: Center(
@@ -108,8 +116,7 @@ class _RegistroViewState extends State<RegistroView> {
                         children: [
                           Text(
                             "Habilidades",
-                            style:
-                                PtextstyleregularItalic(color: Colors.black26),
+                            style: PtextstyleregularItalic(color: gris),
                           ),
                           Wrap(
                               direction: Axis.horizontal,
@@ -134,7 +141,10 @@ class _RegistroViewState extends State<RegistroView> {
                                         },
                                         selected: habilidades.contains(e),
                                       ),
-                                      Text(e)
+                                      Text(
+                                        e,
+                                        style: Ptextstyleregular(),
+                                      )
                                     ]);
                               }).toList()),
                         ],
@@ -147,8 +157,7 @@ class _RegistroViewState extends State<RegistroView> {
                         children: [
                           Text(
                             "Estado Civil",
-                            style:
-                                PtextstyleregularItalic(color: Colors.black26),
+                            style: PtextstyleregularItalic(color: gris),
                           ),
                           Wrap(
                               direction: Axis.horizontal,
@@ -167,7 +176,10 @@ class _RegistroViewState extends State<RegistroView> {
                                         },
                                         selected: selection == actualindex,
                                       ),
-                                      Text(e)
+                                      Text(
+                                        e,
+                                        style: Ptextstyleregular(),
+                                      )
                                     ]);
                               }).toList()),
                         ],

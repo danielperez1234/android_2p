@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class PRadButton extends StatefulWidget {
   PRadButton(
       {Key? key,
-      this.color = Pnaranja,
+      this.color = amarillo,
       required this.onPress,
       this.selected = false})
       : super(key: key);

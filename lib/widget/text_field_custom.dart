@@ -30,14 +30,13 @@ class _PTextFieldCustomState extends State<PTextFieldCustom> {
       height: widget.height ?? 40,
       padding: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-          color: Pblanco,
+          color: dark,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
-                color: Colors.black12,
-                spreadRadius: 1,
-                blurRadius: 1,
-                offset: Offset(0, 2.5))
+                color: gris.withOpacity(.2),
+                offset: Offset(0, 10),
+                blurRadius: 8)
           ]),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -48,7 +47,7 @@ class _PTextFieldCustomState extends State<PTextFieldCustom> {
             child: TextField(
               textAlignVertical: TextAlignVertical.center,
               keyboardType: TextInputType.emailAddress,
-              style: Ptextstylemedium(color: Pazuldark),
+              style: Ptextstylemedium(),
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(bottom: 17),
                 hintText: widget.hint,

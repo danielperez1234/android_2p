@@ -13,13 +13,13 @@ class userCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Pblanco,
+          color: dark,
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
-                color: Pacua2.withOpacity(.35),
-                offset: Offset(0, 13),
-                blurRadius: 8)
+                color: textColor.withOpacity(.05),
+                offset: Offset(0, 3),
+                blurRadius: 1)
           ]),
       child: RawMaterialButton(
           onPressed: () {
@@ -36,13 +36,13 @@ class userCard extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
           child: Container(
             width: MediaQuery.of(context).size.width - 60,
-            height: 90,
+            height: 120,
             padding: EdgeInsets.all(20),
             child: Row(
               children: [
                 Icon(
                   Icons.person_outline_outlined,
-                  color: Pacua,
+                  color: azul,
                   size: 35,
                 ),
                 SizedBox(
@@ -52,11 +52,11 @@ class userCard extends StatelessWidget {
                   children: [
                     Text(
                       user.nombre,
-                      style: PtextstyleButton(color: Pnaranja, size: 35),
+                      style: PtextstyleButton(color: textColor, size: 35),
                     ),
                     Text(
                       user.escolaridad,
-                      style: PtextstyleregularItalic(color: PgreyA0, size: 18),
+                      style: PtextstyleregularItalic(color: gris, size: 18),
                     )
                   ],
                 )

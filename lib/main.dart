@@ -15,14 +15,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          primaryColor: Pblanco,
-          backgroundColor: Pblanco,
+          primaryColor: dark,
+          backgroundColor: dark,
           textSelectionTheme: TextSelectionThemeData(
-              selectionHandleColor: Pnaranja,
-              selectionColor: Pazul,
-              cursorColor: Pazuldark),
-          canvasColor: Pblanco,
-          primarySwatch: PMaterialColor(Pazuldark)),
+              selectionHandleColor: amarillo,
+              selectionColor: azul,
+              cursorColor: dark),
+          canvasColor: dark,
+          primarySwatch: PMaterialColor(dark)),
       home: LoginView(),
     );
   }
