@@ -2,13 +2,8 @@ import 'package:android_2p/constantes.dart';
 import 'package:flutter/material.dart';
 
 class PRadButton extends StatefulWidget {
-  PRadButton(
-      {Key? key,
-      this.color = amarillo,
-      required this.onPress,
-      this.selected = false})
+  PRadButton({Key? key, required this.onPress, this.selected = false})
       : super(key: key);
-  Color color;
   bool selected;
   Function(bool) onPress;
   @override
@@ -30,7 +25,7 @@ class _PRadButtonState extends State<PRadButton> {
           width: 27,
           decoration: BoxDecoration(
               border: Border.all(
-                color: widget.color,
+                color: rojo,
               ),
               shape: BoxShape.circle),
           duration: Duration(milliseconds: 300),
@@ -40,8 +35,8 @@ class _PRadButtonState extends State<PRadButton> {
                   height: 24,
                   duration: Duration(milliseconds: 300),
                   margin: EdgeInsets.all(3),
-                  decoration: BoxDecoration(
-                      color: widget.color, shape: BoxShape.circle),
+                  decoration:
+                      BoxDecoration(color: rojo, shape: BoxShape.circle),
                 )
               : null,
         ),

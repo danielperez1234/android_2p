@@ -15,17 +15,14 @@ class _AppDropDownState extends State<AppDropDown> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
+      width: double.infinity,
       height: 50,
-      decoration: BoxDecoration(
-          color: dark,
-          borderRadius: BorderRadius.circular(15),
-          boxShadow: [
-            BoxShadow(
-                color: gris.withOpacity(.2),
-                offset: Offset(0, 10),
-                blurRadius: 8)
-          ]),
+      decoration: BoxDecoration(color: dark, boxShadow: [
+        BoxShadow(
+            color: azulElectrico2.withOpacity(.2),
+            offset: Offset(0, 5),
+            blurRadius: 3)
+      ]),
       child: DropdownButton(
         underline: Container(
           height: 60,
@@ -37,14 +34,14 @@ class _AppDropDownState extends State<AppDropDown> {
         hint: Center(
             child: Text(
           "Escolaridad",
-          style: Ptextstyleregular(),
+          style: textstylenormal(),
         )),
         items: widget.list
             .map((e) => DropdownMenuItem(
                   child: Center(
                       child: Text(
                     e,
-                    style: Ptextstyleregular(),
+                    style: textstylenormal(),
                   )),
                   value: e,
                 ))

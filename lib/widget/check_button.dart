@@ -2,13 +2,8 @@ import 'package:android_2p/constantes.dart';
 import 'package:flutter/material.dart';
 
 class PCheckButton extends StatefulWidget {
-  PCheckButton(
-      {Key? key,
-      this.color = amarillo,
-      required this.onPress,
-      this.selected = false})
+  PCheckButton({Key? key, required this.onPress, this.selected = false})
       : super(key: key);
-  Color color;
   bool selected;
   Function(bool) onPress;
   @override
@@ -18,7 +13,7 @@ class PCheckButton extends StatefulWidget {
 class _PCheckButtonState extends State<PCheckButton> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         widget.selected = !widget.selected;
         widget.onPress(widget.selected);
@@ -29,19 +24,21 @@ class _PCheckButtonState extends State<PCheckButton> {
           height: 27,
           width: 27,
           decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(7),
               border: Border.all(
-                color: widget.color,
+                color: verde,
               ),
               shape: BoxShape.rectangle),
           duration: Duration(milliseconds: 300),
           child: widget.selected
-              ? AnimatedContainer(
+              ? Container(
                   width: 24,
                   height: 24,
-                  duration: Duration(milliseconds: 300),
                   margin: EdgeInsets.all(3),
                   decoration: BoxDecoration(
-                      color: widget.color, shape: BoxShape.rectangle),
+                      borderRadius: BorderRadius.circular(5),
+                      color: verde,
+                      shape: BoxShape.rectangle),
                   child: Icon(
                     Icons.check,
                     color: dark,

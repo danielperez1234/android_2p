@@ -26,32 +26,29 @@ class _PTextFieldCustomState extends State<PTextFieldCustom> {
     var Psize = MediaQuery.of(context).size;
 
     return Container(
-      width: widget.width ?? Psize.width / 1.875,
-      height: widget.height ?? 40,
+      width: Psize.width,
+      height: 60,
       padding: EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
-          color: dark,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-                color: gris.withOpacity(.2),
-                offset: Offset(0, 10),
-                blurRadius: 8)
-          ]),
+      decoration: BoxDecoration(color: dark, boxShadow: [
+        BoxShadow(
+            color: azulElectrico2.withOpacity(.2),
+            offset: Offset(0, 5),
+            blurRadius: 3)
+      ]),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: widget.width ?? (Psize.width / 1.875) - 65,
-            height: widget.height ?? 40,
+            width: Psize.width / 1.875,
+            height: 40,
             child: TextField(
               textAlignVertical: TextAlignVertical.center,
               keyboardType: TextInputType.emailAddress,
-              style: Ptextstylemedium(),
+              style: Ptextstylemedium(size: 20),
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(bottom: 17),
                 hintText: widget.hint,
-                hintStyle: PtextstyleHint(),
+                hintStyle: PtextstyleHint(size: 20),
                 border: InputBorder.none,
                 disabledBorder: InputBorder.none,
                 enabledBorder: InputBorder.none,

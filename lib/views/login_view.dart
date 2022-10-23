@@ -18,10 +18,21 @@ List<UserModel> users = [
 ];
 int idUser = -1;
 
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
   LoginView({Key? key}) : super(key: key);
+
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  double anim = 0;
+  bool animationEnd = false;
+
   TextEditingController userController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
+
   bool verify() {
     var usr = userController.text;
     var pas = passwordController.text;
@@ -36,75 +47,73 @@ class LoginView extends StatelessWidget {
     return false;
   }
 
+  void animate() async {
+    await Future.delayed(Duration(seconds: 4));
+
+    anim = 5;
+    setState(() {});
+    await Future.delayed(Duration(seconds: 2));
+    animationEnd = true;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    animate();
+  }
+
   @override
   Widget build(BuildContext context) {
+    if (anim == 0) anim = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                    color: Color(0xfff5f5f5),
-                    boxShadow: [
-                      BoxShadow(
-                          color: textColor.withOpacity(.3),
-                          offset: Offset(5, 15),
-                          blurRadius: 12)
-                    ],
-                    border: Border.all(color: rojo, width: 15),
-                    borderRadius: BorderRadius.circular(60)),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(55),
-                  child: Image.network(
-                    "https://i.pinimg.com/564x/7f/9d/38/7f9d38947fe1f5771d9cfb10ae4597ed.jpg",
-                    width: 200,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 35,
-              ),
-              Text(
-                'Welcome Bro!',
-                style: textstyleTitles(color: azul, size: 25),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              PTextFieldCustom(controller: userController, hint: 'Usuario'),
-              SizedBox(
-                height: 22,
-              ),
-              PTextFieldCustom(
-                controller: passwordController,
-                hint: 'Contraseña',
-                isPassword: true,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              PButtonLArgeCustom(
-                  onPressed: () {
-                    if (verify())
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ListUsrView(users: users)),
-                          (route) => false);
-                  },
-                  text: "iniciar"),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
+        children: [
+          Center(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
                   Text(
-                    "No tengo cuenta bro!",
-                    style: Ptextstyleregular(),
+                    'Vircovs App',
+                    style: textstylenormal(color: Colors.white, size: 35),
+                  ),
+                  Image.network(
+                    "https://pngimg.com/uploads/anime_girl/anime_girl_PNG46.png",
+                    width: 150,
+                  ),
+                  SizedBox(
+                    height: 35,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  PTextFieldCustom(controller: userController, hint: 'Usuario'),
+                  SizedBox(
+                    height: 22,
+                  ),
+                  PTextFieldCustom(
+                    controller: passwordController,
+                    hint: 'Contraseña',
+                    isPassword: true,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  PButtonLArgeCustom(
+                      onPressed: () {
+                        if (verify())
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      ListUsrView(users: users)),
+                              (route) => false);
+                      },
+                      text: "iniciar"),
+                  SizedBox(
+                    height: 10,
                   ),
                   TextButton(
                       onPressed: () {
@@ -114,15 +123,39 @@ class LoginView extends StatelessWidget {
                               builder: (context) => RegistroView()),
                         );
                       },
-                      child: Text(
-                        'Registrarme',
-                        style: PtextstyleregularItalic(color: rojo, size: 16),
-                      )),
+                      child: Container(
+                        decoration: BoxDecoration(color: dark, boxShadow: [
+                          BoxShadow(
+                              color: azulElectrico2.withOpacity(.3),
+                              offset: Offset(0, 4),
+                              blurRadius: 2)
+                        ]),
+                        child: Text(
+                          'Registrarme',
+                          style: PtextstyleregularItalic(
+                              color: Colors.white, size: 16),
+                        ),
+                      ))
                 ],
-              )
-            ],
+              ),
+            ),
           ),
-        ),
+          if (!animationEnd)
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                AnimatedContainer(
+                  width: anim,
+                  height: double.infinity,
+                  duration: Duration(seconds: 2),
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          colors: [Colors.transparent, dark], stops: [0, .01])),
+                ),
+              ],
+            ),
+        ],
       ),
     );
   }

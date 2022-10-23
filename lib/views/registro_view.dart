@@ -81,7 +81,7 @@ class _RegistroViewState extends State<RegistroView> {
                 Padding(
                   padding: const EdgeInsets.only(left: 30.0),
                   child: Text(
-                    "Registro",
+                    "Nuevo usuario",
                     style: PtextstyleButton(size: 35),
                   ),
                 ),
@@ -94,7 +94,7 @@ class _RegistroViewState extends State<RegistroView> {
               child: Center(
                 child: SingleChildScrollView(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       PTextFieldCustom(
                           controller: userController, hint: "Usuario"),
@@ -111,41 +111,61 @@ class _RegistroViewState extends State<RegistroView> {
                       SizedBox(
                         height: 35,
                       ),
+                      AppDropDown(
+                        list: ["Licenciatura", "Maestria", "Doctorado"],
+                        onChange: (s) {
+                          escolaridad = s;
+                        },
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          Container(
+                            width: double.infinity,
+                          ),
                           Text(
                             "Habilidades",
                             style: PtextstyleregularItalic(color: gris),
                           ),
                           Wrap(
+                              alignment: WrapAlignment.spaceBetween,
                               direction: Axis.horizontal,
                               children: habilidadesList.map((e) {
                                 int actualindex = habilidadesList.indexOf(e);
-                                return Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      PCheckButton(
-                                        onPress: (i) {
-                                          if (i) {
-                                            habilidades = habilidades + e + ' ';
-                                          } else {
-                                            var sp = habilidades.split(" ");
-                                            habilidades = "";
-                                            sp.forEach((element) {
-                                              if (element != e)
-                                                habilidades + element;
-                                            });
-                                          }
-                                          setState(() {});
-                                        },
-                                        selected: habilidades.contains(e),
-                                      ),
-                                      Text(
-                                        e,
-                                        style: Ptextstyleregular(),
-                                      )
-                                    ]);
+                                return Container(
+                                  width: 100,
+                                  alignment: Alignment.center,
+                                  child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        PCheckButton(
+                                          onPress: (i) {
+                                            if (i) {
+                                              habilidades =
+                                                  habilidades + e + ' ';
+                                            } else {
+                                              var sp = habilidades.split(" ");
+                                              habilidades = "";
+                                              sp.forEach((element) {
+                                                if (element != e)
+                                                  habilidades = habilidades +
+                                                      element +
+                                                      ' ';
+                                              });
+                                            }
+                                            setState(() {});
+                                          },
+                                          selected: habilidades.contains(e),
+                                        ),
+                                        Text(
+                                          e,
+                                          style: textstylenormal(),
+                                        )
+                                      ]),
+                                );
                               }).toList()),
                         ],
                       ),
@@ -153,45 +173,35 @@ class _RegistroViewState extends State<RegistroView> {
                         height: 35,
                       ),
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                             "Estado Civil",
                             style: PtextstyleregularItalic(color: gris),
                           ),
-                          Wrap(
-                              direction: Axis.horizontal,
+                          Column(
                               children: lst.map((e) {
-                                int actualindex = lst.indexOf(e);
-                                return Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      PRadButton(
-                                        onPress: (i) {
-                                          if (i) {
-                                            estadoCivil = e;
-                                            selection = actualindex;
-                                          }
-                                          setState(() {});
-                                        },
-                                        selected: selection == actualindex,
-                                      ),
-                                      Text(
-                                        e,
-                                        style: Ptextstyleregular(),
-                                      )
-                                    ]);
-                              }).toList()),
+                            int actualindex = lst.indexOf(e);
+                            return Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  PRadButton(
+                                    onPress: (i) {
+                                      if (i) {
+                                        estadoCivil = e;
+                                        selection = actualindex;
+                                      }
+                                      setState(() {});
+                                    },
+                                    selected: selection == actualindex,
+                                  ),
+                                  Text(
+                                    e,
+                                    style: textstylenormal(),
+                                  )
+                                ]);
+                          }).toList()),
                         ],
-                      ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      AppDropDown(
-                        list: ["Licenciatura", "Maestria", "Doctorado"],
-                        onChange: (s) {
-                          escolaridad = s;
-                        },
                       ),
                       SizedBox(
                         height: 35,
@@ -207,7 +217,7 @@ class _RegistroViewState extends State<RegistroView> {
                                           ListUsrView(users: users)),
                                   (route) => false);
                           },
-                          text: 'Enviar'),
+                          text: 'registrar'),
                     ],
                   ),
                 ),
