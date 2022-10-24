@@ -75,7 +75,7 @@ class _LoginViewState extends State<LoginView> {
                     style: textstylenormal(color: Colors.white, size: 35),
                   ),
                   Image.network(
-                    "https://pngimg.com/uploads/anime_girl/anime_girl_PNG46.png",
+                    "https://vignette2.wikia.nocookie.net/leagueoflegends/images/7/70/Kindred_The_Lamb_2.png/revision/latest?cb=20150915213957",
                     width: 150,
                   ),
                   SizedBox(
