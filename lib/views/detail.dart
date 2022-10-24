@@ -1,11 +1,11 @@
-import 'package:android_2p/constantes.dart';
+import 'package:android_2p/styles.dart';
 import 'package:flutter/material.dart';
 
-import '../models/user_model.dart';
+import '../models/modelo.dart';
 
-class DetalleView extends StatelessWidget {
-  DetalleView({Key? key, required this.user}) : super(key: key);
-  UserModel user;
+class DetailView extends StatelessWidget {
+  DetailView({Key? key, required this.user}) : super(key: key);
+  Modelo user;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -85,7 +85,7 @@ class DetalleView extends StatelessWidget {
                               style: textstyleTitles(
                                   color: Colors.black26, size: 15),
                             ),
-                            Text(user.estadoCivil)
+                            Text(user.estado)
                           ],
                         ),
                         SizedBox(

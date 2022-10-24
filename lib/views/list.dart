@@ -1,12 +1,12 @@
-import 'package:android_2p/constantes.dart';
-import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/views/login_view.dart';
-import 'package:android_2p/widget/user_card.dart';
+import 'package:android_2p/models/modelo.dart';
+import 'package:android_2p/styles.dart';
+import 'package:android_2p/views/login.dart';
+import 'package:android_2p/widget/userobject.dart';
 import 'package:flutter/material.dart';
 
-class ListUsrView extends StatelessWidget {
-  ListUsrView({Key? key, required this.users}) : super(key: key);
-  List<UserModel> users;
+class LstUser extends StatelessWidget {
+  LstUser({Key? key, required this.users}) : super(key: key);
+  List<Modelo> users;
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +15,8 @@ class ListUsrView extends StatelessWidget {
         leading: TextButton(
           onPressed: () {
             idUser = -1;
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => LoginView()),
-                (s) => false);
+            Navigator.pushAndRemoveUntil(context,
+                MaterialPageRoute(builder: (context) => login()), (s) => false);
           },
           child: Icon(
             Icons.backspace_outlined,
@@ -44,7 +42,7 @@ class ListUsrView extends StatelessWidget {
               ...users
                   .map((e) => Container(
                         margin: EdgeInsets.symmetric(vertical: 5),
-                        child: userCard(
+                        child: userObject(
                           user: e,
                         ),
                       ))

@@ -1,8 +1,8 @@
-import 'package:android_2p/constantes.dart';
+import 'package:android_2p/styles.dart';
 import 'package:flutter/material.dart';
 
-class PButtonLArgeCustom extends StatefulWidget {
-  PButtonLArgeCustom(
+class btn2 extends StatefulWidget {
+  btn2(
       {Key? key,
       required this.onPressed,
       required this.text,
@@ -16,10 +16,10 @@ class PButtonLArgeCustom extends StatefulWidget {
   double? width;
   Color color;
   @override
-  State<PButtonLArgeCustom> createState() => _PButtonLArgeCustomState();
+  State<btn2> createState() => _btn2State();
 }
 
-class _PButtonLArgeCustomState extends State<PButtonLArgeCustom> {
+class _btn2State extends State<btn2> {
   @override
   void initState() {
     // TODO: implement initState
@@ -66,7 +66,7 @@ class _PButtonLArgeCustomState extends State<PButtonLArgeCustom> {
             child: Center(
                 child: Text(
               widget.text.toUpperCase(),
-              style: PtextstyleButton(color: dark),
+              style: textG(color: dark),
             )),
           ),
         ),

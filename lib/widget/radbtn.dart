@@ -1,8 +1,8 @@
-import 'package:android_2p/constantes.dart';
+import 'package:android_2p/styles.dart';
 import 'package:flutter/material.dart';
 
-class PRadButton extends StatefulWidget {
-  PRadButton(
+class radBtn extends StatefulWidget {
+  radBtn(
       {Key? key,
       this.color = amarillo,
       required this.onPress,
@@ -12,10 +12,10 @@ class PRadButton extends StatefulWidget {
   bool selected;
   Function(bool) onPress;
   @override
-  State<PRadButton> createState() => _PRadButtonState();
+  State<radBtn> createState() => _radBtnState();
 }
 
-class _PRadButtonState extends State<PRadButton> {
+class _radBtnState extends State<radBtn> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

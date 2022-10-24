@@ -1,38 +1,62 @@
-import 'package:android_2p/constantes.dart';
-import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/views/list_view.dart';
-import 'package:android_2p/views/registro_view.dart';
-import 'package:android_2p/widget/large_button_custom.dart';
-import 'package:android_2p/widget/text_field_custom.dart';
+import 'package:android_2p/models/modelo.dart';
+import 'package:android_2p/styles.dart';
+import 'package:android_2p/views/list.dart';
+import 'package:android_2p/views/regis.dart';
+import 'package:android_2p/widget/btnapp.dart';
+import 'package:android_2p/widget/textfield.dart';
 import 'package:flutter/material.dart';
 
-List<UserModel> users = [
-  UserModel(1, "usuario1", "nombre", "Password", "estadoCivil", "escolaridad",
-      "habilidades"),
-  UserModel(2, "usuario2", "nombre", "Password", "estadoCivil", "escolaridad",
-      "habilidades"),
-  UserModel(3, "usuario3", "nombre", "Password", "estadoCivil", "escolaridad",
-      "habilidades"),
-  UserModel(4, "usuario4", "nombre", "Password", "estadoCivil", "escolaridad",
-      "habilidades"),
+List<Modelo> usuarios = [
+  Modelo(1, "josue", "Josue Meza", "josue", "casado", "Licenciatura", "Java"),
+  Modelo(2, "laura", "Laura Perez", "laura", "Solero", "Licenciatura", "c#"),
 ];
 int idUser = -1;
 
-class LoginView extends StatelessWidget {
-  LoginView({Key? key}) : super(key: key);
+class login extends StatelessWidget {
+  login({Key? key}) : super(key: key);
   TextEditingController userController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  bool verify() {
+  bool verify(BuildContext context) {
     var usr = userController.text;
     var pas = passwordController.text;
-    var lst = users.where((element) => element.usuario == usr).toList();
+    var lst = usuarios.where((element) => element.usuario == usr).toList();
 
     if (lst.length > 0) {
       var user = lst[0];
-      if (user.Password == pas) {
+      if (user.contrasena == pas) {
         return true;
       }
     }
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              backgroundColor: amarillo.withOpacity(.8),
+              title: Text(
+                "Login error bro!",
+                style: TextStyle(color: rojo, fontSize: 22),
+              ),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "Tus Licencias no estan registradas, intenta crear una cuenta de ${r'"Bro"'} si es que no tienes una cuenta.",
+                    style: TextStyle(color: dark, fontSize: 17),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      "Nimodillo",
+                      style: TextStyle(color: rojo, fontSize: 22),
+                    ),
+                  ),
+                ],
+              ),
+            ));
     return false;
   }
 
@@ -74,11 +98,11 @@ class LoginView extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              PTextFieldCustom(controller: userController, hint: 'Usuario'),
+              textF(controller: userController, hint: 'Usuario'),
               SizedBox(
                 height: 22,
               ),
-              PTextFieldCustom(
+              textF(
                 controller: passwordController,
                 hint: 'Contraseña',
                 isPassword: true,
@@ -86,13 +110,13 @@ class LoginView extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              PButtonLArgeCustom(
+              btn2(
                   onPressed: () {
-                    if (verify())
+                    if (verify(context))
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ListUsrView(users: users)),
+                              builder: (context) => LstUser(users: usuarios)),
                           (route) => false);
                   },
                   text: "iniciar"),
@@ -104,19 +128,18 @@ class LoginView extends StatelessWidget {
                 children: [
                   Text(
                     "No tengo cuenta bro!",
-                    style: Ptextstyleregular(),
+                    style: textstyle(),
                   ),
                   TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => RegistroView()),
+                          MaterialPageRoute(builder: (context) => registro()),
                         );
                       },
                       child: Text(
                         'Registrarme',
-                        style: PtextstyleregularItalic(color: rojo, size: 16),
+                        style: textoItalic(color: rojo, size: 16),
                       )),
                 ],
               )

@@ -1,22 +1,22 @@
-import 'package:android_2p/constantes.dart';
-import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/views/list_view.dart';
-import 'package:android_2p/views/login_view.dart';
-import 'package:android_2p/widget/check_button.dart';
-import 'package:android_2p/widget/drpo_down_cust.dart';
-import 'package:android_2p/widget/large_button_custom.dart';
-import 'package:android_2p/widget/rad_button.dart';
-import 'package:android_2p/widget/text_field_custom.dart';
+import 'package:android_2p/models/modelo.dart';
+import 'package:android_2p/styles.dart';
+import 'package:android_2p/views/list.dart';
+import 'package:android_2p/views/login.dart';
+import 'package:android_2p/widget/btnapp.dart';
+import 'package:android_2p/widget/checkbtn.dart';
+import 'package:android_2p/widget/dropdown.dart';
+import 'package:android_2p/widget/radbtn.dart';
+import 'package:android_2p/widget/textfield.dart';
 import 'package:flutter/material.dart';
 
-class RegistroView extends StatefulWidget {
-  RegistroView({Key? key}) : super(key: key);
+class registro extends StatefulWidget {
+  registro({Key? key}) : super(key: key);
 
   @override
-  State<RegistroView> createState() => _RegistroViewState();
+  State<registro> createState() => _registroState();
 }
 
-class _RegistroViewState extends State<RegistroView> {
+class _registroState extends State<registro> {
   TextEditingController userController = TextEditingController();
 
   TextEditingController nombreController = TextEditingController();
@@ -35,19 +35,43 @@ class _RegistroViewState extends State<RegistroView> {
         passwordController.text != "" &&
         escolaridad != "" &&
         estadoCivil != "") {
-      if (users
+      if (usuarios
           .where((element) => userController.text == element.usuario)
           .isNotEmpty) {
         await showDialog(
             context: context,
             builder: (context) => AlertDialog(
-                  title: Text("Error en registro"),
-                  content: Text("El usuario ya existe."),
+                  backgroundColor: amarillo.withOpacity(.8),
+                  title: Text(
+                    "Error en registro",
+                    style: TextStyle(color: rojo, fontSize: 22),
+                  ),
+                  content: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "El usuario ya existe.",
+                        style: TextStyle(color: dark, fontSize: 17),
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          "Buah",
+                          style: TextStyle(color: rojo, fontSize: 22),
+                        ),
+                      )
+                    ],
+                  ),
                 ));
         return false;
       }
-      users.add(UserModel(
-          users.last.id + 1,
+      usuarios.add(Modelo(
+          usuarios.last.id + 1,
           userController.text,
           nombreController.text,
           passwordController.text,
@@ -59,8 +83,32 @@ class _RegistroViewState extends State<RegistroView> {
     await showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text("Error en registro"),
-              content: Text("Debe completar todos los datos."),
+              backgroundColor: amarillo.withOpacity(.8),
+              title: Text(
+                "Error en registro",
+                style: TextStyle(color: rojo, fontSize: 22),
+              ),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "Debe completar todos los datos.",
+                    style: TextStyle(color: dark, fontSize: 17),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      "Buah",
+                      style: TextStyle(color: rojo, fontSize: 22),
+                    ),
+                  )
+                ],
+              ),
             ));
     return false;
   }
@@ -82,7 +130,7 @@ class _RegistroViewState extends State<RegistroView> {
                   padding: const EdgeInsets.only(left: 30.0),
                   child: Text(
                     "Registro",
-                    style: PtextstyleButton(size: 35),
+                    style: textG(size: 35),
                   ),
                 ),
               ],
@@ -96,18 +144,15 @@ class _RegistroViewState extends State<RegistroView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      PTextFieldCustom(
-                          controller: userController, hint: "Usuario"),
+                      textF(controller: userController, hint: "Usuario"),
                       SizedBox(
                         height: 35,
                       ),
-                      PTextFieldCustom(
-                          controller: nombreController, hint: 'Nombre'),
+                      textF(controller: nombreController, hint: 'Nombre'),
                       SizedBox(
                         height: 35,
                       ),
-                      PTextFieldCustom(
-                          controller: passwordController, hint: 'Contraseña'),
+                      textF(controller: passwordController, hint: 'Contraseña'),
                       SizedBox(
                         height: 35,
                       ),
@@ -116,7 +161,7 @@ class _RegistroViewState extends State<RegistroView> {
                         children: [
                           Text(
                             "Habilidades",
-                            style: PtextstyleregularItalic(color: gris),
+                            style: textoItalic(color: gris),
                           ),
                           Wrap(
                               direction: Axis.horizontal,
@@ -125,7 +170,7 @@ class _RegistroViewState extends State<RegistroView> {
                                 return Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      PCheckButton(
+                                      checkBtn(
                                         onPress: (i) {
                                           if (i) {
                                             habilidades = habilidades + e + ' ';
@@ -143,7 +188,7 @@ class _RegistroViewState extends State<RegistroView> {
                                       ),
                                       Text(
                                         e,
-                                        style: Ptextstyleregular(),
+                                        style: textstyle(),
                                       )
                                     ]);
                               }).toList()),
@@ -157,7 +202,7 @@ class _RegistroViewState extends State<RegistroView> {
                         children: [
                           Text(
                             "Estado Civil",
-                            style: PtextstyleregularItalic(color: gris),
+                            style: textoItalic(color: gris),
                           ),
                           Wrap(
                               direction: Axis.horizontal,
@@ -166,7 +211,7 @@ class _RegistroViewState extends State<RegistroView> {
                                 return Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      PRadButton(
+                                      radBtn(
                                         onPress: (i) {
                                           if (i) {
                                             estadoCivil = e;
@@ -178,7 +223,7 @@ class _RegistroViewState extends State<RegistroView> {
                                       ),
                                       Text(
                                         e,
-                                        style: Ptextstyleregular(),
+                                        style: textstyle(),
                                       )
                                     ]);
                               }).toList()),
@@ -187,7 +232,7 @@ class _RegistroViewState extends State<RegistroView> {
                       SizedBox(
                         height: 25,
                       ),
-                      AppDropDown(
+                      dropBtn(
                         list: ["Licenciatura", "Maestria", "Doctorado"],
                         onChange: (s) {
                           escolaridad = s;
@@ -196,7 +241,7 @@ class _RegistroViewState extends State<RegistroView> {
                       SizedBox(
                         height: 35,
                       ),
-                      PButtonLArgeCustom(
+                      btn2(
                           onPressed: () async {
                             var b = await Verify();
                             if (b)
@@ -204,7 +249,7 @@ class _RegistroViewState extends State<RegistroView> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          ListUsrView(users: users)),
+                                          LstUser(users: usuarios)),
                                   (route) => false);
                           },
                           text: 'Enviar'),

@@ -1,8 +1,8 @@
-import 'package:android_2p/constantes.dart';
+import 'package:android_2p/styles.dart';
 import 'package:flutter/material.dart';
 
-class PTextFieldCustom extends StatefulWidget {
-  PTextFieldCustom(
+class textF extends StatefulWidget {
+  textF(
       {Key? key,
       required this.controller,
       required this.hint,
@@ -16,10 +16,10 @@ class PTextFieldCustom extends StatefulWidget {
   bool isPassword;
   String hint;
   @override
-  State<PTextFieldCustom> createState() => _PTextFieldCustomState();
+  State<textF> createState() => _textFState();
 }
 
-class _PTextFieldCustomState extends State<PTextFieldCustom> {
+class _textFState extends State<textF> {
   bool isPress = false;
   @override
   Widget build(BuildContext context) {
@@ -47,11 +47,11 @@ class _PTextFieldCustomState extends State<PTextFieldCustom> {
             child: TextField(
               textAlignVertical: TextAlignVertical.center,
               keyboardType: TextInputType.emailAddress,
-              style: Ptextstylemedium(),
+              style: texto2(),
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(bottom: 17),
                 hintText: widget.hint,
-                hintStyle: PtextstyleHint(),
+                hintStyle: textstyle(color: gris),
                 border: InputBorder.none,
                 disabledBorder: InputBorder.none,
                 enabledBorder: InputBorder.none,

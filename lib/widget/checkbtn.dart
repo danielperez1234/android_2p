@@ -1,8 +1,8 @@
-import 'package:android_2p/constantes.dart';
+import 'package:android_2p/styles.dart';
 import 'package:flutter/material.dart';
 
-class PCheckButton extends StatefulWidget {
-  PCheckButton(
+class checkBtn extends StatefulWidget {
+  checkBtn(
       {Key? key,
       this.color = amarillo,
       required this.onPress,
@@ -12,10 +12,10 @@ class PCheckButton extends StatefulWidget {
   bool selected;
   Function(bool) onPress;
   @override
-  State<PCheckButton> createState() => _PCheckButtonState();
+  State<checkBtn> createState() => _checkBtnState();
 }
 
-class _PCheckButtonState extends State<PCheckButton> {
+class _checkBtnState extends State<checkBtn> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

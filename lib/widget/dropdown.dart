@@ -1,16 +1,16 @@
-import 'package:android_2p/constantes.dart';
+import 'package:android_2p/styles.dart';
 import 'package:flutter/material.dart';
 
-class AppDropDown extends StatefulWidget {
-  AppDropDown({Key? key, required this.list, required this.onChange})
+class dropBtn extends StatefulWidget {
+  dropBtn({Key? key, required this.list, required this.onChange})
       : super(key: key);
   List<String> list;
   Function(String) onChange;
   @override
-  State<AppDropDown> createState() => _AppDropDownState();
+  State<dropBtn> createState() => _dropBtnState();
 }
 
-class _AppDropDownState extends State<AppDropDown> {
+class _dropBtnState extends State<dropBtn> {
   String? value;
   @override
   Widget build(BuildContext context) {
@@ -37,14 +37,14 @@ class _AppDropDownState extends State<AppDropDown> {
         hint: Center(
             child: Text(
           "Escolaridad",
-          style: Ptextstyleregular(),
+          style: textstyle(),
         )),
         items: widget.list
             .map((e) => DropdownMenuItem(
                   child: Center(
                       child: Text(
                     e,
-                    style: Ptextstyleregular(),
+                    style: textstyle(),
                   )),
                   value: e,
                 ))

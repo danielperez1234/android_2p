@@ -1,14 +1,14 @@
-import 'package:android_2p/constantes.dart';
-import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/views/detalle_view.dart';
+import 'package:android_2p/models/modelo.dart';
+import 'package:android_2p/styles.dart';
+import 'package:android_2p/views/detail.dart';
 import 'package:flutter/material.dart';
 
-class userCard extends StatelessWidget {
-  userCard({
+class userObject extends StatelessWidget {
+  userObject({
     Key? key,
     required this.user,
   }) : super(key: key);
-  UserModel user;
+  Modelo user;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +26,7 @@ class userCard extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => DetalleView(user: user)));
+                    builder: (context) => DetailView(user: user)));
           },
           elevation: 0,
           highlightElevation: 0,
@@ -52,11 +52,11 @@ class userCard extends StatelessWidget {
                   children: [
                     Text(
                       user.nombre,
-                      style: PtextstyleButton(color: textColor, size: 35),
+                      style: textG(color: textColor, size: 35),
                     ),
                     Text(
                       user.escolaridad,
-                      style: PtextstyleregularItalic(color: gris, size: 18),
+                      style: textoItalic(color: gris, size: 18),
                     )
                   ],
                 )

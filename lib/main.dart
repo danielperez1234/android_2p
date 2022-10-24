@@ -1,5 +1,5 @@
-import 'package:android_2p/constantes.dart';
-import 'package:android_2p/views/login_view.dart';
+import 'package:android_2p/styles.dart';
+import 'package:android_2p/views/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,15 +15,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          primaryColor: dark,
-          backgroundColor: dark,
-          textSelectionTheme: TextSelectionThemeData(
-              selectionHandleColor: amarillo,
-              selectionColor: azul,
-              cursorColor: dark),
-          canvasColor: dark,
-          primarySwatch: PMaterialColor(dark)),
-      home: LoginView(),
+        primaryColor: dark,
+        backgroundColor: dark,
+        textSelectionTheme: TextSelectionThemeData(
+            selectionHandleColor: amarillo,
+            selectionColor: azul,
+            cursorColor: dark),
+        canvasColor: dark,
+      ),
+      home: login(),
     );
   }
 }
