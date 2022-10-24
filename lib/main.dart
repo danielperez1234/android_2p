@@ -1,4 +1,4 @@
-import 'package:android_2p/views/login.dart';
+import 'package:android_flutter/views/login.dart';
 import 'package:flutter/material.dart';
 
 import 'global/colores.dart';
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
           primaryColor: bg,

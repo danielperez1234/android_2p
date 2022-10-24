@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../global/colores.dart';
 
-class PRadButton extends StatefulWidget {
-  PRadButton({Key? key, required this.onPress, this.selected = false})
+class RadioBoton extends StatefulWidget {
+  RadioBoton({Key? key, required this.onPress, this.selected = false})
       : super(key: key);
   bool selected;
   Function(bool) onPress;
   @override
-  State<PRadButton> createState() => _PRadButtonState();
+  State<RadioBoton> createState() => _RadioBotonState();
 }
 
-class _PRadButtonState extends State<PRadButton> {
+class _RadioBotonState extends State<RadioBoton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

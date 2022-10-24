@@ -1,4 +1,4 @@
-class UserModel {
+class Persona {
   int id;
   String usuario;
   String nombre;
@@ -7,6 +7,6 @@ class UserModel {
   String escolaridad;
   String habilidades;
 
-  UserModel(this.id, this.usuario, this.nombre, this.Password, this.estadoCivil,
+  Persona(this.id, this.usuario, this.nombre, this.Password, this.estadoCivil,
       this.escolaridad, this.habilidades);
 }

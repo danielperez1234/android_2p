@@ -1,4 +1,4 @@
-package com.adrian.android_2p
+package com.example.androidflutter
 
 import io.flutter.embedding.android.FlutterActivity
 

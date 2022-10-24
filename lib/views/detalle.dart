@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../global/colores.dart';
-import '../global/styles.dart';
 import '../models/user_model.dart';
 
 class DetalleView extends StatelessWidget {
   DetalleView({Key? key, required this.user}) : super(key: key);
-  UserModel user;
+  Persona user;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

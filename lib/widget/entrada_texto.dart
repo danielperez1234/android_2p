@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../global/colores.dart';
 import '../global/styles.dart';
 
-class PTextFieldCustom extends StatefulWidget {
-  PTextFieldCustom(
+class EntradaText extends StatefulWidget {
+  EntradaText(
       {Key? key,
       required this.controller,
       required this.hint,
@@ -18,10 +18,10 @@ class PTextFieldCustom extends StatefulWidget {
   bool isPassword;
   String hint;
   @override
-  State<PTextFieldCustom> createState() => _PTextFieldCustomState();
+  State<EntradaText> createState() => _EntradaTextState();
 }
 
-class _PTextFieldCustomState extends State<PTextFieldCustom> {
+class _EntradaTextState extends State<EntradaText> {
   bool isPress = false;
   @override
   Widget build(BuildContext context) {

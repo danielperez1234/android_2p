@@ -1,18 +1,18 @@
 import 'dart:math';
 
-import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/views/detalle.dart';
+import 'package:android_flutter/models/user_model.dart';
+import 'package:android_flutter/views/detalle.dart';
 import 'package:flutter/material.dart';
 
 import '../global/colores.dart';
 import '../global/styles.dart';
 
-class userCard extends StatelessWidget {
-  userCard({
+class Tarjeta extends StatelessWidget {
+  Tarjeta({
     Key? key,
     required this.user,
   }) : super(key: key);
-  UserModel user;
+  Persona user;
   List<Color> colorL = [rojo, verde, amarillo];
   @override
   Widget build(BuildContext context) {

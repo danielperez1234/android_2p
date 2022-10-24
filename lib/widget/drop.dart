@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import '../global/colores.dart';
 import '../global/styles.dart';
 
-class AppDropDown extends StatefulWidget {
-  AppDropDown({Key? key, required this.list, required this.onChange})
+class DropDownApp extends StatefulWidget {
+  DropDownApp({Key? key, required this.list, required this.onChange})
       : super(key: key);
   List<String> list;
   Function(String) onChange;
   @override
-  State<AppDropDown> createState() => _AppDropDownState();
+  State<DropDownApp> createState() => _DropDownAppState();
 }
 
-class _AppDropDownState extends State<AppDropDown> {
+class _DropDownAppState extends State<DropDownApp> {
   String? value;
   @override
   Widget build(BuildContext context) {

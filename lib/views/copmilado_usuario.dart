@@ -1,15 +1,14 @@
-import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/widget/boton.dart';
-import 'package:android_2p/widget/tile_usuario.dart';
+import 'package:android_flutter/global/colores.dart';
 import 'package:flutter/material.dart';
 
-import '../global/colores.dart';
-import '../global/styles.dart';
+import '../models/user_model.dart';
+import '../widget/boton.dart';
+import '../widget/tile_usuario.dart';
 import 'login.dart';
 
 class ListUsrView extends StatelessWidget {
   ListUsrView({Key? key, required this.users}) : super(key: key);
-  List<UserModel> users;
+  List<Persona> users;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +37,7 @@ class ListUsrView extends StatelessWidget {
                     ...users
                         .map((e) => Container(
                               margin: EdgeInsets.symmetric(vertical: 5),
-                              child: userCard(
+                              child: Tarjeta(
                                 user: e,
                               ),
                             ))
@@ -50,7 +49,7 @@ class ListUsrView extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-            PButtonLArgeCustom(
+            ButtonApp(
                 onPressed: () {
                   idUser = -1;
                   Navigator.pushAndRemoveUntil(

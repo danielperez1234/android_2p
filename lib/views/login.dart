@@ -1,22 +1,14 @@
-import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/views/copmilado_usuario.dart';
-import 'package:android_2p/views/registro.dart';
-import 'package:android_2p/widget/boton.dart';
-import 'package:android_2p/widget/entrada_texto.dart';
+import 'package:android_flutter/models/user_model.dart';
+import 'package:android_flutter/views/registro.dart';
+import 'package:android_flutter/widget/boton.dart';
+import 'package:android_flutter/widget/entrada_texto.dart';
 import 'package:flutter/material.dart';
 
 import '../global/colores.dart';
-import '../global/styles.dart';
+import 'copmilado_usuario.dart';
 
-List<UserModel> users = [
-  UserModel(1, "usuario1", "nombre", "Password", "estadoCivil", "escolaridad",
-      "habilidades"),
-  UserModel(2, "usuario2", "nombre", "Password", "estadoCivil", "escolaridad",
-      "habilidades"),
-  UserModel(3, "usuario3", "nombre", "Password", "estadoCivil", "escolaridad",
-      "habilidades"),
-  UserModel(4, "usuario4", "nombre", "Password", "estadoCivil", "escolaridad",
-      "habilidades"),
+List<Persona> users = [
+  Persona(1, "admin", "VJ_FM.72673", "admin", "Soltero", "Doctorado", "Java C#")
 ];
 int idUser = -1;
 
@@ -79,7 +71,7 @@ class _LoginViewState extends State<LoginView> {
               child: Column(
                 children: [
                   Text(
-                    'Vircovs App',
+                    'VJ_FM.72673',
                     style: textstylenormal(color: Colors.white, size: 35),
                   ),
                   Image.network(
@@ -92,11 +84,11 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(
                     height: 20,
                   ),
-                  PTextFieldCustom(controller: userController, hint: 'Usuario'),
+                  EntradaText(controller: userController, hint: 'Usuario'),
                   SizedBox(
                     height: 22,
                   ),
-                  PTextFieldCustom(
+                  EntradaText(
                     controller: passwordController,
                     hint: 'Contraseña',
                     isPassword: true,
@@ -104,7 +96,7 @@ class _LoginViewState extends State<LoginView> {
                   SizedBox(
                     height: 20,
                   ),
-                  PButtonLArgeCustom(
+                  ButtonApp(
                       onPressed: () {
                         if (verify())
                           Navigator.pushAndRemoveUntil(

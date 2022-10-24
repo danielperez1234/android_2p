@@ -1,15 +1,14 @@
-import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/views/copmilado_usuario.dart';
-import 'package:android_2p/views/login.dart';
-import 'package:android_2p/widget/boton.dart';
-import 'package:android_2p/widget/check_box.dart';
-import 'package:android_2p/widget/drop.dart';
-import 'package:android_2p/widget/entrada_texto.dart';
-import 'package:android_2p/widget/radio_boton.dart';
+import 'package:android_flutter/models/user_model.dart';
+import 'package:android_flutter/views/login.dart';
+import 'package:android_flutter/widget/boton.dart';
+import 'package:android_flutter/widget/check_box.dart';
+import 'package:android_flutter/widget/drop.dart';
+import 'package:android_flutter/widget/entrada_texto.dart';
+import 'package:android_flutter/widget/radio_boton.dart';
 import 'package:flutter/material.dart';
 
 import '../global/colores.dart';
-import '../global/styles.dart';
+import 'copmilado_usuario.dart';
 
 class RegistroView extends StatefulWidget {
   RegistroView({Key? key}) : super(key: key);
@@ -25,13 +24,13 @@ class _RegistroViewState extends State<RegistroView> {
 
   TextEditingController passwordController = TextEditingController();
 
-  List<String> lst = ['Soltero', 'Casado'];
-  List<String> habilidadesList = ["Java", "C#", "C++"];
-  int selection = -1;
+  List<String> estados = ['Soltero', 'Casado', 'Viudo', 'Divorciado'];
+  int estadoIndex = -1;
   String estadoCivil = "";
   String habilidades = "";
+  List<String> habilidadesList = ["Java", "C#", "flutter", "kotlin", 'Python'];
   String escolaridad = "";
-  Future<bool> Verify() async {
+  Future<bool> VerificacionRegistro() async {
     if (userController.text != "" &&
         nombreController.text != "" &&
         passwordController.text != "" &&
@@ -48,7 +47,7 @@ class _RegistroViewState extends State<RegistroView> {
                 ));
         return false;
       }
-      users.add(UserModel(
+      users.add(Persona(
           users.last.id + 1,
           userController.text,
           nombreController.text,
@@ -98,22 +97,20 @@ class _RegistroViewState extends State<RegistroView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      PTextFieldCustom(
-                          controller: userController, hint: "Usuario"),
+                      EntradaText(controller: userController, hint: "Usuario"),
                       SizedBox(
                         height: 35,
                       ),
-                      PTextFieldCustom(
-                          controller: nombreController, hint: 'Nombre'),
+                      EntradaText(controller: nombreController, hint: 'Nombre'),
                       SizedBox(
                         height: 35,
                       ),
-                      PTextFieldCustom(
+                      EntradaText(
                           controller: passwordController, hint: 'Contraseña'),
                       SizedBox(
                         height: 35,
                       ),
-                      AppDropDown(
+                      DropDownApp(
                         list: ["Licenciatura", "Maestria", "Doctorado"],
                         onChange: (s) {
                           escolaridad = s;
@@ -143,7 +140,7 @@ class _RegistroViewState extends State<RegistroView> {
                                   child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        PCheckButton(
+                                        ChackBoxApp(
                                           onPress: (i) {
                                             if (i) {
                                               habilidades =
@@ -182,20 +179,20 @@ class _RegistroViewState extends State<RegistroView> {
                             style: PtextstyleregularItalic(color: gris),
                           ),
                           Column(
-                              children: lst.map((e) {
-                            int actualindex = lst.indexOf(e);
+                              children: estados.map((e) {
+                            int actualindex = estados.indexOf(e);
                             return Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  PRadButton(
+                                  RadioBoton(
                                     onPress: (i) {
                                       if (i) {
                                         estadoCivil = e;
-                                        selection = actualindex;
+                                        estadoIndex = actualindex;
                                       }
                                       setState(() {});
                                     },
-                                    selected: selection == actualindex,
+                                    selected: estadoIndex == actualindex,
                                   ),
                                   Text(
                                     e,
@@ -208,9 +205,9 @@ class _RegistroViewState extends State<RegistroView> {
                       SizedBox(
                         height: 35,
                       ),
-                      PButtonLArgeCustom(
+                      ButtonApp(
                           onPressed: () async {
-                            var b = await Verify();
+                            var b = await VerificacionRegistro();
                             if (b)
                               Navigator.pushAndRemoveUntil(
                                   context,

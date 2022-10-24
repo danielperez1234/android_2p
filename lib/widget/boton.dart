@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../global/colores.dart';
 import '../global/styles.dart';
 
-class PButtonLArgeCustom extends StatefulWidget {
-  PButtonLArgeCustom({
+class ButtonApp extends StatefulWidget {
+  ButtonApp({
     Key? key,
     required this.onPressed,
     required this.text,
@@ -12,10 +12,10 @@ class PButtonLArgeCustom extends StatefulWidget {
   Function() onPressed;
   String text;
   @override
-  State<PButtonLArgeCustom> createState() => _PButtonLArgeCustomState();
+  State<ButtonApp> createState() => _ButtonAppState();
 }
 
-class _PButtonLArgeCustomState extends State<PButtonLArgeCustom> {
+class _ButtonAppState extends State<ButtonApp> {
   @override
   void initState() {
     // TODO: implement initState

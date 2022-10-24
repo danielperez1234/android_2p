@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../global/colores.dart';
 
-class PCheckButton extends StatefulWidget {
-  PCheckButton({Key? key, required this.onPress, this.selected = false})
+class ChackBoxApp extends StatefulWidget {
+  ChackBoxApp({Key? key, required this.onPress, this.selected = false})
       : super(key: key);
   bool selected;
   Function(bool) onPress;
   @override
-  State<PCheckButton> createState() => _PCheckButtonState();
+  State<ChackBoxApp> createState() => _ChackBoxAppState();
 }
 
-class _PCheckButtonState extends State<PCheckButton> {
+class _ChackBoxAppState extends State<ChackBoxApp> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
