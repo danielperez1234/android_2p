@@ -1,8 +1,8 @@
 import 'package:android_2p/constantes.dart';
 import 'package:flutter/material.dart';
 
-class PTextFieldCustom extends StatefulWidget {
-  PTextFieldCustom(
+class userInfo extends StatefulWidget {
+  userInfo(
       {Key? key,
       required this.controller,
       required this.hint,
@@ -16,10 +16,10 @@ class PTextFieldCustom extends StatefulWidget {
   bool isPassword;
   String hint;
   @override
-  State<PTextFieldCustom> createState() => _PTextFieldCustomState();
+  State<userInfo> createState() => _userInfoState();
 }
 
-class _PTextFieldCustomState extends State<PTextFieldCustom> {
+class _userInfoState extends State<userInfo> {
   bool isPress = false;
   @override
   Widget build(BuildContext context) {
@@ -30,10 +30,9 @@ class _PTextFieldCustomState extends State<PTextFieldCustom> {
       height: widget.height ?? 40,
       padding: EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-        color: Pblanco,
+        color: white,
         border: Border(
-            left: BorderSide(color: Pnaranja),
-            bottom: BorderSide(color: Pnaranja)),
+            left: BorderSide(color: pink), bottom: BorderSide(color: pink)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -44,11 +43,11 @@ class _PTextFieldCustomState extends State<PTextFieldCustom> {
             child: TextField(
               textAlignVertical: TextAlignVertical.center,
               keyboardType: TextInputType.emailAddress,
-              style: Ptextstylemedium(color: Pazuldark),
+              style: normalStyle(color: grey),
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.only(bottom: 17),
                 hintText: widget.hint,
-                hintStyle: PtextstyleHint(),
+                hintStyle: normalStyle(color: greyLight),
                 border: InputBorder.none,
                 disabledBorder: InputBorder.none,
                 enabledBorder: InputBorder.none,

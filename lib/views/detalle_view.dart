@@ -10,19 +10,19 @@ class DetalleView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Material(
-          color: Pazuldark,
+          color: grey,
           child: Container(
             width: double.infinity,
             height: double.infinity,
             padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(color: Pblanco, boxShadow: [
+            decoration: BoxDecoration(color: white, boxShadow: [
               BoxShadow(
-                  color: Pnaranja.withOpacity(.5),
+                  color: pink.withOpacity(.5),
                   offset: Offset(5, 5),
                   blurRadius: 20,
                   spreadRadius: 10),
               BoxShadow(
-                  color: Pacua2.withOpacity(.20),
+                  color: blue.withOpacity(.20),
                   offset: Offset(-2, -7),
                   blurRadius: 3)
             ]),
@@ -35,7 +35,7 @@ class DetalleView extends StatelessWidget {
                   children: [
                     Text(
                       "Nombre",
-                      style: Ptextstylemedium(size: 25, color: Pnaranja),
+                      style: normalStyle(size: 25, color: pink),
                     ),
                     Text(user.nombre)
                   ],
@@ -44,8 +44,7 @@ class DetalleView extends StatelessWidget {
                   children: [
                     Text(
                       "Escolaridad",
-                      style: PtextstyleregularItalic(
-                          color: Colors.black26, size: 15),
+                      style: italicStyle(color: Colors.black26, size: 15),
                     ),
                     Text(user.escolaridad)
                   ],
@@ -54,8 +53,7 @@ class DetalleView extends StatelessWidget {
                   children: [
                     Text(
                       "EstadoCivil",
-                      style: PtextstyleregularItalic(
-                          color: Colors.black26, size: 15),
+                      style: italicStyle(color: Colors.black26, size: 15),
                     ),
                     Text(user.estadoCivil)
                   ],
@@ -64,8 +62,7 @@ class DetalleView extends StatelessWidget {
                   children: [
                     Text(
                       "Habilidades",
-                      style: PtextstyleregularItalic(
-                          color: Colors.black26, size: 15),
+                      style: italicStyle(color: Colors.black26, size: 15),
                     ),
                     Text(user.habilidades)
                   ],

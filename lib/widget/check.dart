@@ -1,16 +1,16 @@
 import 'package:android_2p/constantes.dart';
 import 'package:flutter/material.dart';
 
-class PCheckButton extends StatefulWidget {
-  PCheckButton({Key? key, required this.onPress, this.selected = false})
+class checkBttn extends StatefulWidget {
+  checkBttn({Key? key, required this.onPress, this.selected = false})
       : super(key: key);
   bool selected;
   Function(bool) onPress;
   @override
-  State<PCheckButton> createState() => _PCheckButtonState();
+  State<checkBttn> createState() => _checkBttnState();
 }
 
-class _PCheckButtonState extends State<PCheckButton> {
+class _checkBttnState extends State<checkBttn> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
@@ -23,12 +23,12 @@ class _PCheckButtonState extends State<PCheckButton> {
         child: widget.selected
             ? Icon(
                 Icons.check_box,
-                color: Pnaranja,
+                color: pink,
                 size: 27,
               )
             : Icon(
                 Icons.check_box_outline_blank,
-                color: Pnaranja,
+                color: pink,
                 size: 27,
               ),
       ),

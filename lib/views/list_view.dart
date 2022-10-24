@@ -1,7 +1,7 @@
 import 'package:android_2p/constantes.dart';
 import 'package:android_2p/models/user_model.dart';
 import 'package:android_2p/views/login_view.dart';
-import 'package:android_2p/widget/user_card.dart';
+import 'package:android_2p/widget/userInfo.dart';
 import 'package:flutter/material.dart';
 
 class ListUsrView extends StatelessWidget {
@@ -30,14 +30,14 @@ class ListUsrView extends StatelessWidget {
           },
           child: Icon(
             Icons.logout,
-            color: Pblanco,
+            color: white,
           ),
         ),
-        backgroundColor: Pazuldark,
+        backgroundColor: grey,
         centerTitle: true,
         title: Text(
           "Usuarios",
-          style: PtextstyleButton(color: Pblanco, size: 25),
+          style: estilogrueso(color: white, size: 25),
         ),
       ),
       body: Container(

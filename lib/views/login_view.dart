@@ -2,8 +2,8 @@ import 'package:android_2p/constantes.dart';
 import 'package:android_2p/models/user_model.dart';
 import 'package:android_2p/views/list_view.dart';
 import 'package:android_2p/views/registro_view.dart';
-import 'package:android_2p/widget/large_button_custom.dart';
-import 'package:android_2p/widget/text_field_custom.dart';
+import 'package:android_2p/widget/button.dart';
+import 'package:android_2p/widget/text.dart';
 import 'package:flutter/material.dart';
 
 List<UserModel> users = [
@@ -22,7 +22,7 @@ class LoginView extends StatelessWidget {
   LoginView({Key? key}) : super(key: key);
   TextEditingController userController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  bool verify() {
+  bool verify(BuildContext context) {
     var usr = userController.text;
     var pas = passwordController.text;
     var lst = users.where((element) => element.usuario == usr).toList();
@@ -33,6 +33,22 @@ class LoginView extends StatelessWidget {
         return true;
       }
     }
+    showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              backgroundColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              title: Text(
+                "Error end datos",
+                style: detallesStyle(size: 25),
+              ),
+              content: Text(
+                "Vuelve a ingresar tus datos o intenta registrarte como nuevo usuario.",
+                style: normalStyle(color: blue),
+              ),
+            ));
     return false;
   }
 
@@ -46,20 +62,20 @@ class LoginView extends StatelessWidget {
             children: [
               Text(
                 "Martha Style",
-                style: PtextstyleDetalles(size: 30),
+                style: detallesStyle(size: 30),
               ),
               Text(
                 'Login',
-                style: Ptextstylemedium(color: Pacua, size: 25),
+                style: normalStyle(color: darckblue, size: 25),
               ),
               SizedBox(
                 height: 20,
               ),
-              PTextFieldCustom(controller: userController, hint: 'Usuario'),
+              userInfo(controller: userController, hint: 'Usuario'),
               SizedBox(
                 height: 22,
               ),
-              PTextFieldCustom(
+              userInfo(
                 controller: passwordController,
                 hint: 'Contraseña',
                 isPassword: true,
@@ -67,9 +83,9 @@ class LoginView extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              PButtonLArgeCustom(
+              bttn(
                   onPressed: () {
-                    if (verify())
+                    if (verify(context))
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
@@ -89,7 +105,7 @@ class LoginView extends StatelessWidget {
                   },
                   child: Text(
                     'Registrarme',
-                    style: PtextstyleregularItalic(color: Pacua2, size: 16),
+                    style: italicStyle(color: blue, size: 16),
                   ))
             ],
           ),

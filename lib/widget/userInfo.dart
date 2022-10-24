@@ -12,9 +12,9 @@ class userCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: Pblanco, boxShadow: [
+      decoration: BoxDecoration(color: white, boxShadow: [
         BoxShadow(
-            color: Ptext.withOpacity(.35), offset: Offset(0, 13), blurRadius: 8)
+            color: blue.withOpacity(.35), offset: Offset(0, 13), blurRadius: 8)
       ]),
       child: RawMaterialButton(
           onPressed: () {
@@ -40,11 +40,11 @@ class userCard extends StatelessWidget {
                   children: [
                     Text(
                       user.nombre,
-                      style: PtextstyleButton(color: Pnaranja, size: 35),
+                      style: estilogrueso(color: pink, size: 35),
                     ),
                     Text(
                       user.escolaridad,
-                      style: PtextstyleregularItalic(color: PgreyA0, size: 18),
+                      style: italicStyle(color: greyLight, size: 18),
                     )
                   ],
                 )
