@@ -1,7 +1,7 @@
 import 'package:android_flutter/views/login.dart';
 import 'package:flutter/material.dart';
 
-import 'global/colores.dart';
+import 'colores.dart';
 
 void main() {
   runApp(const MyApp());

@@ -4,7 +4,7 @@ import 'package:android_flutter/widget/boton.dart';
 import 'package:android_flutter/widget/entrada_texto.dart';
 import 'package:flutter/material.dart';
 
-import '../global/colores.dart';
+import '../colores.dart';
 import 'copmilado_usuario.dart';
 
 List<Persona> users = [
@@ -38,6 +38,8 @@ class _LoginViewState extends State<LoginView> {
         return true;
       }
     }
+    var x = SnackBar(content: Text("Datos de inicio erroneos."));
+    ScaffoldMessenger.of(context).showSnackBar(x);
     return false;
   }
 

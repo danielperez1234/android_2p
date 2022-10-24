@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../global/colores.dart';
+import '../colores.dart';
 import '../models/user_model.dart';
 
 class DetalleView extends StatelessWidget {

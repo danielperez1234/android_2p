@@ -1,4 +1,4 @@
-import 'package:android_flutter/global/colores.dart';
+import 'package:android_flutter/colores.dart';
 import 'package:flutter/material.dart';
 
 import '../models/user_model.dart';

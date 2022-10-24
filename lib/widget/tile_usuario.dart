@@ -4,8 +4,7 @@ import 'package:android_flutter/models/user_model.dart';
 import 'package:android_flutter/views/detalle.dart';
 import 'package:flutter/material.dart';
 
-import '../global/colores.dart';
-import '../global/styles.dart';
+import '../colores.dart';
 
 class Tarjeta extends StatelessWidget {
   Tarjeta({

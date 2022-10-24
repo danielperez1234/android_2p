@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../global/colores.dart';
+import '../colores.dart';
 
 class ChackBoxApp extends StatefulWidget {
   ChackBoxApp({Key? key, required this.onPress, this.selected = false})

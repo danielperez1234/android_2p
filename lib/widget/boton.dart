@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../global/colores.dart';
-import '../global/styles.dart';
+import '../colores.dart';
 
 class ButtonApp extends StatefulWidget {
   ButtonApp({

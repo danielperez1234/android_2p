@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../global/colores.dart';
-import '../global/styles.dart';
+import '../colores.dart';
 
 class DropDownApp extends StatefulWidget {
   DropDownApp({Key? key, required this.list, required this.onChange})

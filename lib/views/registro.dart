@@ -7,7 +7,7 @@ import 'package:android_flutter/widget/entrada_texto.dart';
 import 'package:android_flutter/widget/radio_boton.dart';
 import 'package:flutter/material.dart';
 
-import '../global/colores.dart';
+import '../colores.dart';
 import 'copmilado_usuario.dart';
 
 class RegistroView extends StatefulWidget {
@@ -39,12 +39,9 @@ class _RegistroViewState extends State<RegistroView> {
       if (users
           .where((element) => userController.text == element.usuario)
           .isNotEmpty) {
-        await showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-                  title: Text("Error en registro"),
-                  content: Text("El usuario ya existe."),
-                ));
+        var x = SnackBar(content: Text("Usuario ya existe."));
+        ScaffoldMessenger.of(context).showSnackBar(x);
+
         return false;
       }
       users.add(Persona(
@@ -57,12 +54,8 @@ class _RegistroViewState extends State<RegistroView> {
           habilidades));
       return true;
     }
-    await showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-              title: Text("Error en registro"),
-              content: Text("Debe completar todos los datos."),
-            ));
+    var x = SnackBar(content: Text("Complete todos los campos."));
+    ScaffoldMessenger.of(context).showSnackBar(x);
     return false;
   }
 

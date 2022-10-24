@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../global/colores.dart';
+import '../colores.dart';
 
 class RadioBoton extends StatefulWidget {
   RadioBoton({Key? key, required this.onPress, this.selected = false})
