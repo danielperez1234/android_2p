@@ -1,12 +1,12 @@
-import 'package:android_2p/constantes.dart';
-import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/views/list_view.dart';
-import 'package:android_2p/views/login_view.dart';
-import 'package:android_2p/widget/button.dart';
-import 'package:android_2p/widget/check.dart';
-import 'package:android_2p/widget/drop.dart';
-import 'package:android_2p/widget/radio.dart';
-import 'package:android_2p/widget/text.dart';
+import 'package:martha_flutter/constantes.dart';
+import 'package:martha_flutter/models/user_model.dart';
+import 'package:martha_flutter/views/list_view.dart';
+import 'package:martha_flutter/views/login_view.dart';
+import 'package:martha_flutter/widget/button.dart';
+import 'package:martha_flutter/widget/check.dart';
+import 'package:martha_flutter/widget/drop.dart';
+import 'package:martha_flutter/widget/radio.dart';
+import 'package:martha_flutter/widget/text.dart';
 import 'package:flutter/material.dart';
 
 class RegistroView extends StatefulWidget {

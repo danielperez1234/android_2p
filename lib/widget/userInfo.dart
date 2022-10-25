@@ -1,6 +1,6 @@
-import 'package:android_2p/constantes.dart';
-import 'package:android_2p/models/user_model.dart';
-import 'package:android_2p/views/detalle_view.dart';
+import 'package:martha_flutter/constantes.dart';
+import 'package:martha_flutter/models/user_model.dart';
+import 'package:martha_flutter/views/detalle_view.dart';
 import 'package:flutter/material.dart';
 
 class userCard extends StatelessWidget {
